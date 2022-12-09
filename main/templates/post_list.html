@@ -16,11 +16,11 @@
             <p>Совпадений нет </p>
         </div>
     {%else%}
-        {%for key, value in posts.items()%}
+        {%for post in posts%}
 
             <div class="post">
-                <img src={{key}} width="100%" alt="">
-                    <p>{{value}}</p>
+                <img src={{post["pic"]}} width="100%" alt="">
+                    <p>{{post["content"]}}</p>
             </div>
             <hr>
         {% endfor %}
