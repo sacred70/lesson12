@@ -11,18 +11,20 @@
     <a href="index.html" class="link">Назад</a>
 
     <h1>Посты по запросу {{s}}</h1>
+    {%if count < 1%}
+        <div class="post">
+            <p>Совпадений нет </p>
+        </div>
+    {%else%}
+        {%for key, value in posts.items()%}
 
-    <div class="post">
-        <img src="https://images.unsplash.com/photo-1637141479049-42656cb6b741?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" width="100%" alt="">
-        <p>Описание поста тут </p>
-    </div>
-    <hr>
-
-    <div class="post">
-        <img src="https://images.unsplash.com/photo-1637141479049-42656cb6b741?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" width="100%" alt="">
-        <p>Описание поста тут </p>
-    </div>
-    <hr>
+            <div class="post">
+                <img src={{key}} width="100%" alt="">
+                    <p>{{value}}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
     <a href="post_form.html" class="button">Добавить пост</a>
 
 </main>
