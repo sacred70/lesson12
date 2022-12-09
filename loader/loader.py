@@ -4,7 +4,7 @@ import functions
 #  создаем блюпринт
 loader_bueprint = Blueprint("loader_bueprint", __name__, template_folder='templates')
 
-@loader_bueprint.route("/post")
+@loader_bueprint.route("/post", methods=["GET", "POST"])
 #  переходим на страницу добавления поста
 def loader():
     return render_template("post_form.html")
