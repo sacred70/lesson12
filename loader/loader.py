@@ -9,9 +9,12 @@ loader_bueprint = Blueprint("loader_bueprint", __name__, template_folder='templa
 def loader():
     return render_template("post_form.html")
 
+@loader_bueprint.route("/post", methods=["POST"])
 def post_losder():
     #  проверка на внесение данных
-    pic = request.files.get("pic")
-    content = request.form.get("content")
+    pic = request.files("pic")
+    content = request.form("content")
+    file_name = pic.filename
+    pic.save(f"./uploads/{file_name}")
     if not pic or not content:
         return "error loader"
