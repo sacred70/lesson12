@@ -1,9 +1,12 @@
 from flask import Blueprint, render_template, request
 from functions import loader_in_file
+import logging
 
 
 #  создаем блюпринт
 loader_bueprint = Blueprint("loader_bueprint", __name__, template_folder='templates')
+logging.basicConfig(filename="basic.log", level=logging.ERROR)
+
 
 
 @loader_bueprint.route("/post", methods=["GET", "POST"])
@@ -25,7 +28,8 @@ def post_loader():
         #pic.save(url)
         #loader_in_file(url, content)
             #if not pic or not content:
-                #return "error loader"
+                #logging.error("Данные не загружены")
+                #return "Заполнены не все поля"
     return render_template("post_uploaded.html", url=url, text=content)
 
 
