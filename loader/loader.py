@@ -22,11 +22,14 @@ def post_loader():
     content = request.form["content"]
     file_name = pic.filename
     url = f"./uploads/{file_name}"
-        #pic.save(url)
-        #loader_in_file(url, content)
-            #if not pic or not content:
-                #logging.error("Данные не загружены")
-                #return "Заполнены не все поля"
+    if not pic or not content:
+        logging.error("Данные не загружены")
+        return "Заполнены не все поля"
+
+
+    pic.save(url)
+    loader_in_file(url, content)
+
     return render_template("post_uploaded.html", url=url, text=content)
 
 

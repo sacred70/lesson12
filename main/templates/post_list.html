@@ -11,7 +11,7 @@
     <a href="/" class="link">Назад</a>
 
     <h1>Посты по запросу {{s}}</h1>
-    {%if count < 1%}
+    {%if count < 1 or not s %}
         <div class="post">
             <p>Совпадений нет </p>
         </div>
