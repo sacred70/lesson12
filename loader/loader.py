@@ -5,7 +5,7 @@ import logging
 
 #  создаем блюпринт
 loader_bueprint = Blueprint("loader_bueprint", __name__, template_folder='templates')
-#logging.basicConfig(filename="basic1.log", level=logging.ERROR)
+logging.basicConfig(filename="basic1.log", level=logging.ERROR)
 
 
 @loader_bueprint.route("/post", methods=["GET", "POST"])
