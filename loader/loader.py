@@ -5,8 +5,7 @@ import logging
 
 #  создаем блюпринт
 loader_bueprint = Blueprint("loader_bueprint", __name__, template_folder='templates')
-logging.basicConfig(filename="basic.log", level=logging.ERROR)
-
+#logging.basicConfig(filename="basic1.log", level=logging.ERROR)
 
 
 @loader_bueprint.route("/post", methods=["GET", "POST"])
@@ -18,9 +17,7 @@ def loader():
 @loader_bueprint.route("/upload", methods=["POST"])
 def post_loader():
     #  проверка на внесение данных, запись в json, переход в форму
-
     #if request.method == 'POST':
-
     pic = request.files["picture"]
     content = request.form["content"]
     file_name = pic.filename

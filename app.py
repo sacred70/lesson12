@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask,  send_from_directory
 from main.main import main_blueprint
 from loader.loader import loader_bueprint
 
@@ -9,6 +9,7 @@ UPLOAD_FOLDER = "uploads/images"
 app = Flask(__name__)
 app.register_blueprint(main_blueprint)
 app.register_blueprint(loader_bueprint)
+
 
 @app.route("/")
 def page_index():
