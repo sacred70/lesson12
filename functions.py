@@ -34,11 +34,9 @@ def search(key_search):
     return posts
 
 
-def loader_in_file(url, content):
-    file_type = url.split('.')[-1]
-    if file_type not in ["jpg", "jpeg", "png"]:
-        logging.info("Неверный тип файла")
-        return "Этот файл не картинка"
+def loader_in_file(url, content, file_name):
+    file_type = file_name.split('.')[-1]
+    print(file_type)
     json_data = {"pic": url, "content": content}
     with open(POST_PATH, "r", encoding='utf-8') as f:
         text = json.load(f)

@@ -21,6 +21,9 @@ def post_loader():
     pic = request.files["picture"]
     content = request.form["content"]
     file_name = pic.filename
+    if file_name not in ["jpg", "jpeg", "png"]:
+        logging.info("Неверный тип файла")
+        return "Этот файл не картинка"
     url = f"./uploads/{file_name}"
     if not pic or not content:
         logging.error("Данные не загружены")
@@ -28,7 +31,7 @@ def post_loader():
 
 
     pic.save(url)
-    loader_in_file(url, content)
+    loader_in_file(url, content, file_name)
 
     return render_template("post_uploaded.html", url=url, text=content)
 
