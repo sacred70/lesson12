@@ -21,7 +21,8 @@ def post_loader():
     pic = request.files["picture"]
     content = request.form["content"]
     file_name = pic.filename
-    if file_name not in ["jpg", "jpeg", "png"]:
+    file_type = file_name.split('.')[-1]
+    if file_type not in ["jpg", "jpeg", "png"]:
         logging.info("Неверный тип файла")
         return "Этот файл не картинка"
     url = f"./uploads/{file_name}"

@@ -36,7 +36,7 @@ def search(key_search):
 
 def loader_in_file(url, content, file_name):
     file_type = file_name.split('.')[-1]
-    print(file_type)
+
     json_data = {"pic": url, "content": content}
     with open(POST_PATH, "r", encoding='utf-8') as f:
         text = json.load(f)
